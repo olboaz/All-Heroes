@@ -1,0 +1,10 @@
+<%= link_to heroe_path(heroe) do %>
+  <div class="card-heroe">
+    <%= image_tag heroe.image_hero %>
+    <div class="card-heroe-infos">
+      <div>
+        <h2><%= heroe.name %></h2>
+      </div>
+    </div>
+  </div>
+<% end %>

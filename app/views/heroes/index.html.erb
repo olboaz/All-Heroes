@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center text-secondary">Heroe's list</h1>
+  <div class="cards">
+    <% @heroes.each do |heroe| %>
+      <div class="category">
+        <%= link_to hero_path(heroe) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+            url('https://source.unsplash.com/1600x900/?super heroes-<%=heroe.name%>');">
+            <h2><%= heroe.name.capitalize %> </h2>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
