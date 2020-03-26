@@ -1,3 +1,3 @@
 class Publisher < ApplicationRecord
-  belongs_to :heroe
+  has_many :publishers
 end

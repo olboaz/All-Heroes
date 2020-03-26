@@ -22,18 +22,18 @@ ActiveRecord::Schema.define(version: 2020_03_25_104221) do
     t.string "image_hero"
     t.integer "height"
     t.integer "weight"
+    t.bigint "publisher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.index ["publisher_id"], name: "index_heroes_on_publisher_id"
   end
 
   create_table "publishers", force: :cascade do |t|
     t.string "name"
-    t.bigint "heroe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["heroe_id"], name: "index_publishers_on_heroe_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,5 +52,5 @@ ActiveRecord::Schema.define(version: 2020_03_25_104221) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "publishers", "heroes", column: "heroe_id"
+  add_foreign_key "heroes", "publishers"
 end
