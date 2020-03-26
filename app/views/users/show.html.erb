@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="my-3 p-3"><%= @user.username %></h1>
+
+        <div class="bg-white p-3 my-3" id="about-me">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h2 class="mb-3">About me</h2>
+            <% unless current_page?(edit_user_url) %>
+              <span class="btn btn-secondary p-2"><%= link_to "Edit my profile", edit_user_url, id:"btn-edit-profile" %></span>
+            <% end %>
+          </div>
+          <% if current_page?(edit_user_url) %>
+            <%= simple_form_for(@user) do |f| %>
+              <div class="mb-3">
+                <span class="badge badge-primary">Email</span> <span class="text-muted"><%= @user.email %></span>
+              </div>
+              <%= f.input :username %>
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.button :submit, "Update my profile", class: 'btn btn-primary' %>
+            <% end %>
+          <% else %>
+            <div>
+              <ul class="list-unstyled">
+                <li class="d-flex align-items-center"><i class="fas fa-user icon-user-profile"></i><%= @user.username %></li>
+                <li class="d-flex align-items-center"><i class="far fa-envelope icon-user-profile"></i><%= @user.email %></li>
+                <li class="d-flex align-items-center"><i class="far fa-id-badge icon-user-profile"></i><%= "#{@user.first_name} #{@user.last_name}" %></li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+
+    </div>
+  </div>
+</div>
