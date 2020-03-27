@@ -11,13 +11,16 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <%= render 'shared/navbar' %>
     <%  if current_page?('/')%>
     <% else %>
-    <%= render 'shared/navbar' %>
+
     <%= render 'shared/flashes' %>
     <% end %>
-    <%= yield %>
-
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
