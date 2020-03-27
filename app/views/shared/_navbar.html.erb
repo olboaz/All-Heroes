@@ -1,6 +1,13 @@
+
+<% if current_page?(root_path) %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
+<% else %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% end %>
+
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "superhero.svg" %>
+    All Heroes
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
