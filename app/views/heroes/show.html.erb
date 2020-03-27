@@ -1,12 +1,13 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= @heroe.name %></h2>
-    <p><%= @heroe.description %></p>
-    <p><%= @heroe.address %></p>
-    <p><%= @heroe.height %></p>
-    <p><%= @heroe.weight %></p>
+<div class="container">
+  <div class="card-product">
+    <%= image_tag @heroe.image_hero %>
+    <div class="card-product-infos">
+      <h2><%= @heroe.name %></h2>
+      <p><%= @heroe.description %></p>
+      <p><%= @heroe.address %></p>
+      <p><%= @heroe.height %></p>
+      <p><%= @heroe.weight %></p>
+    </div>
   </div>
 </div>
-
 
