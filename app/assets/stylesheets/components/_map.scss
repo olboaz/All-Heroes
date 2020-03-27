@@ -1,0 +1,18 @@
+.mapboxgl-popup {
+  width:500px;
+  height:150px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Muli';
+  border-radius:20px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius : 10px;
+}

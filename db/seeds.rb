@@ -31,6 +31,8 @@ heroe = Heroe.new(
   image_hero: hero['image']['url'],
   height: hero['appearance']['height'][1],
   weight: hero['appearance']['weight'][1],
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude,
   publisher_id: i
 )
 heroe.save!
