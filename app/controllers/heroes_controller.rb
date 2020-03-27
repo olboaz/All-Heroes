@@ -7,7 +7,9 @@ def index
   @markers = @heroes.map do |heroe|
     {
       lat: heroe.latitude,
-      lng: heroe.longitude
+      lng: heroe.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { heroe: heroe }),
+      image_url: helpers.asset_url('superhero.svg')
     }
   end
 

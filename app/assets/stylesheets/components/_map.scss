@@ -1,3 +1,4 @@
+
 .mapboxgl-popup {
   width:500px;
   height:150px;
@@ -6,7 +7,21 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Muli';
-  border-radius:20px;
+  color: grey;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius : 10px;
+}
+
+.card-infos {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
@@ -15,4 +30,31 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius : 10px;
+}
+
+.card-title {
+    margin-bottom: 1.75rem;
+}
+
+.cm {
+    position: absolute;
+    bottom: 8px;
+    left: 24px;
+    font-family: Muli;
+    font-size: 16px;
+}
+
+.kg {
+    position: absolute;
+    bottom: 8px;
+    right: 24px;
+    font-size: 16px;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none;
+}
+
+.mapboxgl-ctrl > .mapboxgl-ctrl-logo {
+  display: none;
 }
