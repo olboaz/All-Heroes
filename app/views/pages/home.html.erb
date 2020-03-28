@@ -6,16 +6,17 @@
     </p>
     <div id="home-search">
       <div id="cover">
-        <form class="d-flex">
-          <%= form_with url: heroes_path, method: "GET", local: true do |f| %>
-            <button type="submit">
-              <%= image_tag "strong.svg", id: "search" %>
-            </button>
+        <%= form_with url: heroes_path, method: "GET", local: true do |f| %>
+          <div class="d-flex">
+            <form>
+              <button type="submit">
+                <%= image_tag "strong.svg", id: "search" %>
+              </button>
               <%= f.text_field :name, id: "HeroName", placeholder: "Search by name" %>
-<!--               <%= f.submit "" %> -->
-
+    <!--           <%= f.submit "" %> -->
+            </form>
+          </div>
         <% end %>
-        </form>
       </div>
     </div>
   </div>
