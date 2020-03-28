@@ -6,27 +6,17 @@
     <title>All Heroes</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-<!--     <%= stylesheet_link_tag 'application', media: 'all' %> -->
     <%= favicon_link_tag asset_path('HASB8385.jpg') %>
-    <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-<!--     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %> -->
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application' %>
-
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <%  if current_page?('/')%>
-    <% else %>
-
-    <%= render 'shared/flashes' %>
-    <% end %>
     <div class="content-wrapper">
       <%= yield %>
     </div>
+    <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
-<!--     <%= javascript_pack_tag 'application' %> -->
   </body>
 </html>
