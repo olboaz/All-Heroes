@@ -6,6 +6,7 @@
   height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position:relative;
 }
 .footer-links {
   display: flex;
@@ -25,3 +26,7 @@
   color: #D23333;
 }
 
+.content-wrapper {
+  min-height: calc(100vh - 126px);
+  position:relative;
+}
