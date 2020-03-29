@@ -1,13 +1,22 @@
+
 <div class="container">
-  <div class="card-product">
+  <div class="card-hero">
     <%= image_tag @heroe.image_hero %>
-    <div class="card-product-infos">
-      <h2><%= @heroe.name %></h2>
-      <p><%= @heroe.description %></p>
-      <p><%= @heroe.address %></p>
-      <p><%= @heroe.height %></p>
-      <p><%= @heroe.weight %></p>
-    </div>
+
+  <div class="card-hero-infos">
+    <h2><%= @heroe.name %></h2>
+    <p><strong>Address :</strong> <%= @heroe.address %></p>
+    <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+    <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+    <hr>
+    <p><strong>Description :</strong> <%= @heroe.description %></p>
+  </div>
+</div>
+</div>
+
+<div class="container my-3 ">
+  <div class="card-hero">
+    <h4 class="p-2">Reviews</h4>
   </div>
 </div>
 

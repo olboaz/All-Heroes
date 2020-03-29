@@ -29,28 +29,28 @@
   }
 }
 
-.card-product {
+.card-hero {
   overflow: hidden;
-  height: 120px;
+  height: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  justify-content:start;
 }
 
-.card-product img {
+.card-hero img {
   height: 100%;
-  width: 120px;
-  object-fit: cover;
+  width: 260px;
+  object-fit: unset;
 }
 
-.card-product h2 {
-  font-size: 16px;
+.card-hero h2 {
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-hero p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -58,8 +58,9 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-hero .card-hero-infos {
   padding: 16px;
+  flex-grow: 1;
 }
 
 
