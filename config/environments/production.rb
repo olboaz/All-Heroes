@@ -1,6 +1,9 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  #config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
   # Settings specified here will take precedence over those in config/application.rb.
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "allheroes.herokuapp.com" }
 
   # Code is not reloaded between requests.
   config.cache_classes = true

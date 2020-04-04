@@ -16,7 +16,7 @@ require 'faker'
 
 my_api_key = ENV['HERO_API_KEY']
 
-(1..10).each { |i|
+(1..50).each { |i|
 url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
 hero_serialized = open(url).read
 hero = JSON.parse(hero_serialized)
