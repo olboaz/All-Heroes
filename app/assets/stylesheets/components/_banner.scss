@@ -13,6 +13,7 @@
   font-size: 50px;
   font-weight: bold;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 .banner p {
@@ -36,4 +37,7 @@
     align-items: center;
 }
 
-
+#home-search {
+  display: flex;
+  justify-content: center;
+}

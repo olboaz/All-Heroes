@@ -6,7 +6,7 @@ def index
     sql_query = "name ILIKE :name AND latitude IS NOT NULL AND longitude IS NOT NULL"
     @heroes = Heroe.geocoded.where(sql_query, name: "%#{params[:name]}%") # renvoit tous les héros geocded
   else
-    @heroes = Heroe.geocoded # renvoit tous les héros geocded
+    @heroes = Heroe.geocoded # renvoit tous les héros geocoded
   end
 
   @markers = @heroes.map do |heroe|
