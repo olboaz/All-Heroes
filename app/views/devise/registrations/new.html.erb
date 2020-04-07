@@ -8,13 +8,12 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :username,
+            <!-- <div> <%= f.input :username,
                         autofocus: true %>
-
-            <%= f.input :first_name %>
-
+            </div> -->
+            <div class="d-flex justify-content-between"> <%= f.input :first_name %>
             <%= f.input :last_name %>
-
+            </div>
             <%= f.input :email,
                         required: true,
                         input_html: { autocomplete: "email" }%>
