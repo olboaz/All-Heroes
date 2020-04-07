@@ -18,6 +18,7 @@
               <%= f.input :username %>
               <%= f.input :first_name %>
               <%= f.input :last_name %>
+              <%= f.input :photo, as: :file, class: 'avatar'%>
               <%= f.button :submit, "Update my profile", class: 'btn btn-primary' %>
             <% end %>
           <% else %>
