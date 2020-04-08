@@ -22,9 +22,9 @@
     opacity: 0.6;
   }
   & h2 {
-    font-family: 'Comic Neue', cursive;
+    //font-family: 'Comic Neue', cursive;
+    font-family: $headers-font;
     font-size: 35px;
-    font-weight: bold;
     padding:10px;
   }
 }
