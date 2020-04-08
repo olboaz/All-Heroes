@@ -6,12 +6,32 @@
   <div class="card-hero-infos">
     <h2><%= @heroe.name %></h2>
     <p><strong>Address :</strong> <%= @heroe.address %></p>
-    <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
-    <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+    <% if @heroe.height == 0 %>
+      <p><strong>Heigth :</strong> na </p>
+    <% else %>
+      <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+    <% end %>
+
+    <% if @heroe.height == 0 %>
+      <p><strong>Heigth :</strong> na </p>
+    <% else %>
+      <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+    <% end %>
+
     <hr>
     <p><strong>Description :</strong> <%= @heroe.description %></p>
   </div>
 </div>
+</div>
+
+<div class="container my-3">
+  <h4 class="p-2">Other Pictures</h4>
+  <div class="card-hero d-flew justify-content-around">
+    <%= image_tag @heroe.image_hero, class: "p-2"%>
+    <%= image_tag @heroe.image_hero, class: "p-2" %>
+    <%= image_tag @heroe.image_hero, class: "p-2" %>
+    <%= image_tag @heroe.image_hero, class: "p-2" %>
+  </div>
 </div>
 
 <div class="container my-3 ">
