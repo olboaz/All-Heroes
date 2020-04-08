@@ -3,17 +3,17 @@
   background-position: center;
   padding: 150px 0;
   height: 100vh;
-
 }
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: $my-green;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 50px;
+  font-size: 60px;
   font-weight: bold;
   padding-bottom: 10px;
   text-align: center;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 
 .banner p {

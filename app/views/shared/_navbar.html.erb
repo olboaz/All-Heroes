@@ -8,11 +8,11 @@
 <% end %>
 
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "superhero.svg" %>
+    <h5><%= image_tag "superhero.svg" %>
     <% if current_page?(root_path) %>
     <% else %>
       All Heroes
-    <% end %>
+    <% end %></h5>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +41,10 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <h6>  <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></h6>
         </li>
         <li class="nav-item">
-          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+          <h6><%= link_to "Log in", new_user_session_path, class: "nav-link" %></h6>
         </li>
       <% end %>
     </ul>

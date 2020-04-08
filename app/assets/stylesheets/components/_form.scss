@@ -1,11 +1,21 @@
 .form-inputs{
-  width:500px;
+  width: 400px;
 
 }
 
 .form {
   border-radius: 10px;
   background-color: white;
-  padding: 1em;
   box-shadow: 0 15px 35px rgba(126,87,88,0.1),0 5px 15px rgba(0,0,0,0.07);
+  padding: 10px 20px;
+  margin-top: 50px;
+  h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom:10px
+  }
 }
