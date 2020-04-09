@@ -42,6 +42,12 @@
   height: 100%;
   width: 260px;
   object-fit: unset;
+  padding: 20px;
+}
+
+.card-heroes {
+  display: flex;
+  justify-content: space-around;
 }
 
 .card-hero h2 {
