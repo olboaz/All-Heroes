@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   has_many :heroes, through: :users_heroes
+  has_one_attached :photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :username, :first_name, :last_name, :email, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :photo
   after_create :send_welcome_email
   after_create :subscribe_to_newsletter
 

@@ -20,6 +20,7 @@ gem 'geocoder'
 gem 'postmark-rails'
 gem 'gibbon'
 gem 'cloudinary', '~> 1.12.0'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
