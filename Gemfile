@@ -22,6 +22,16 @@ gem 'gibbon'
 gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 
+# gem 'libv8'
+# gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-digitalocean'
+gem 'omniauth-twitter'
+gem 'omniauth-amazon'
+gem 'omniauth-google'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
