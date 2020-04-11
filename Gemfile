@@ -22,15 +22,14 @@ gem 'gibbon'
 gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 
-# gem 'libv8'
-# gem 'therubyracer'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
 gem 'omniauth-twitter'
 gem 'omniauth-amazon'
 gem 'omniauth-google'
 gem 'omniauth-github'
+gem 'omniauth-facebook', '~> 6.0'
 gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

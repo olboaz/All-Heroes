@@ -15,7 +15,6 @@
               <div class="mb-3">
                 <span class="badge badge-primary">Email</span> <span class="text-muted"><%= @user.email %></span>
               </div>
-              <%= f.input :username %>
               <%= f.input :first_name %>
               <%= f.input :last_name %>
               <%= f.input :photo, as: :file, class: 'avatar'%>
@@ -24,9 +23,9 @@
           <% else %>
             <div>
               <ul class="list-unstyled">
-                <li class="d-flex align-items-center"><i class="fas fa-user icon-user-profile"></i><%= @user.username %></li>
-                <li class="d-flex align-items-center"><i class="far fa-envelope icon-user-profile"></i><%= @user.email %></li>
-                <li class="d-flex align-items-center"><i class="far fa-id-badge icon-user-profile"></i><%= "#{@user.first_name} #{@user.last_name}" %></li>
+                <!-- <li class="d-flex align-items-center"><i class="fas fa-user icon-user-profile"></i><%= @user.username %></li> -->
+                <li class="d-flex align-items-center"> <i class="far fa-envelope icon-user-profile"> </i> <%= @user.email %> </li>
+                <li class="d-flex align-items-center"> <i class="far fa-id-badge icon-user-profile"> </i> <%= "#{@user.first_name} #{@user.last_name}" %> </li>
               </ul>
             </div>
           <% end %>

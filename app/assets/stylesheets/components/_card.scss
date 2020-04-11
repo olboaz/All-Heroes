@@ -20,6 +20,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &:hover{
     opacity: 0.6;
+    transform: scale(1.1)
   }
   & h2 {
     //font-family: 'Comic Neue', cursive;
@@ -29,6 +30,10 @@
   }
 }
 
+.category{
+  overflow: hidden;
+}
+
 .card-hero {
   overflow: hidden;
   height: 300px;
@@ -36,6 +41,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content:start;
+
 }
 
 .card-hero img {
