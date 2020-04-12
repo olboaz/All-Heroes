@@ -19,7 +19,24 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end %>
+  <div class="effect claudio">
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <div class="buttons">
+        <% if provider.to_s == "facebook" %>
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "fb" do %><br />
+            <i class="fab fa-facebook"></i>
+          <% end %>
+        <% elsif provider.to_s == "github" %>
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "github" do %><br />
+<!--      <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: ""%><br />-->
+            <i class="fab fa-github"></i>
+          <% end %>
+        <% else %>
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "g-plus" do %><br />
+            <i class="fab fa-google"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
