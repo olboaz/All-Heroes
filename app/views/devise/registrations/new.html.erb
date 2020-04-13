@@ -1,11 +1,11 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(<%= asset_path('6.jpg') %>);">
-<div class="container d-flex justify-content-center">
-  <div class="row">
-    <div class="col-12">
-      <div class="form">
-        <h2>Sign up</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <div class="col-12">
+        <div class="form">
+          <h2>Sign up</h2>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
             <div class="form-inputs">
 
               <%= f.input :email,
@@ -23,25 +23,23 @@
                           required: true,
                           placeholder: "******",
                           input_html: { autocomplete: "new-password" } %>
-
-
               <br>
               <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
             </div>
-        <% end %>
-        <br>
-        <div class="form-actions">
+          <% end %>
+          <br>
+          <div class="form-actions">
             <div class="line">
               <t>Or</t>
             </div>
           </div>
-         <br>
-        <div class="">
-          <%= render "devise/shared/links"%>
-        </div>
           <br>
+          <div class="">
+            <%= render "devise/shared/links"%>
+          </div>
+          <br>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
