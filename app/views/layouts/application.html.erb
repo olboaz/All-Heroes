@@ -14,11 +14,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navbar'%>
+
     <div class="content-wrapper">
       <%= yield %>
     </div>
+
     <%= render 'shared/flashes' %>
-    <%= render 'shared/footer' %>
+
+    <%- if (controller_name == 'sessions') || (controller_name == 'registrations') %>
+    <% else %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>
