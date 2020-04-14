@@ -19,6 +19,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<% if current_page?('/') ||  current_page?('/users/sign_in') || current_page?('/users/sign_up')%>
+<% else %>
+  <div class="form-group mr-auto col-lg-4 col-xs-4">
+    <%= form_with url: heroes_path, method: "GET", local: true do |f| %>
+      <% if params[:name].present? %>
+        <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: params[:name] %>
+      <% else %>
+        <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: "Search by heroe" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
