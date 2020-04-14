@@ -53,7 +53,6 @@ class User < ApplicationRecord
       user.token = provider_data.credentials.token
       user.password = Devise.friendly_token[0, 20]
     end
-
   end
 
 

@@ -15,7 +15,7 @@
     <%- resource_class.omniauth_providers.each do |provider| %>
       <div class="buttons">
         <% if provider.to_s == "facebook" %>
-          <%= link_to omniauth_authorize_path(resource_name, provider), class: "fb" do %><br />
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "fb popup", 'data-width': 600, 'data-height': 400 do %><br />
             <i class="fab fa-facebook"></i>
           <% end %>
         <% elsif provider.to_s == "github" %>
@@ -24,7 +24,7 @@
             <i class="fab fa-github"></i>
           <% end %>
         <% else %>
-          <%= link_to omniauth_authorize_path(resource_name, provider), class: "g-plus" do %><br />
+          <%= link_to omniauth_authorize_path(resource_name, provider), class: "g-plus popup", 'data-width': 600, 'data-height': 400 do %><br />
             <i class="fab fa-google"></i>
           <% end %>
         <% end %>
