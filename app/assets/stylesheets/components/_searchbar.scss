@@ -7,10 +7,32 @@
   padding: 0;
 }
 
-#search{
+#home-icon-search{
   height:60px;
   width:60px;
   opacity:0.3;
+  transition: fill .1s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+}
+
+.form-group button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  right: 40px;
+}
+
+#icon-search {
+  height:30px;
+  width:30px;
+  opacity:0.3;
+  border: none;
+
   transition: fill .1s ease-in-out;
     &:hover {
       opacity: 1;

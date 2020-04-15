@@ -1,33 +1,38 @@
 
-<% if current_page?(root_path) || controller_name = 'sessions' %>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
-<% elsif current_page?(heroes_path)%>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-<% else current_page?(heroes_path)%>
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:relative;width:100%">
+<% if current_page?(root_path) %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
+
+<% else current_page?(heroes_path) || current_page?(hero_path)%>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="position:relative;width:100%">
 <% end %>
 
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <h5><%= image_tag "superhero.svg" %>
-    <% if current_page?(root_path) %>
-    <% else %>
-      All Heroes
-    <% end %></h5>
-  <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<%= link_to root_path, class: "navbar-brand" do %>
+  <h5><%= image_tag "superhero.svg" %>
+  <% if current_page?(root_path) %>
+  <% else %>
+    All Heroes
+  <% end %></h5>
+<% end %>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
 <% if current_page?('/') ||  current_page?('/users/sign_in') || current_page?('/users/sign_up')%>
 <% else %>
   <div class="form-group mr-auto col-lg-4 col-xs-4">
     <%= form_with url: heroes_path, method: "GET", local: true do |f| %>
-      <% if params[:name].present? %>
-        <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: params[:name] %>
-      <% else %>
-        <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: "Search by heroe" %>
-      <% end %>
+      <div class="d-flex">
+        <% if params[:name].present? %>
+          <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: params[:name] %>
+        <% else %>
+          <%= f.text_field :name, class: "form-control rounded search", id: "HeroName", placeholder: "Search by heroe" %>
+        <% end %>
+        <button type="submit">
+          <%= image_tag "strong.svg", id: "icon-search" %>
+        </button>
+      </div>
     <% end %>
   </div>
 <% end %>

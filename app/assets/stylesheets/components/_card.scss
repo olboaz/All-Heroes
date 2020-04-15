@@ -41,7 +41,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content:start;
-
+  border-radius: 5px;
 }
 
 .card-hero img {
@@ -49,6 +49,7 @@
   width: 260px;
   object-fit: unset;
   padding: 20px;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 .card-heroes {
