@@ -5,6 +5,7 @@
   padding-top:10px;
 }
 
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -20,13 +21,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &:hover{
     opacity: 0.6;
-    transform: scale(1.1)
+    transform: scale(1.05) translateY(-5px);
+    transition: transform .6s;
   }
   & h2 {
     //font-family: 'Comic Neue', cursive;
     font-family: $headers-font;
     font-size: 35px;
-    padding:10px;
+    padding:14px;
   }
 }
 
