@@ -8,5 +8,4 @@ class Heroe < ApplicationRecord
 
   validates :name, :description, :address, :image_hero, :height, :weight,  presence: true
   validates :name, uniqueness:  true
-
 end

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :heroes
   resources :users, except: [ :index, :destroy ]
   resources :publisers, only: [:new, :create]
+  resources :contacts, only: [:new, :create]
 end

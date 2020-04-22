@@ -1,0 +1,32 @@
+<div class="banner"
+     style="background-image: linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.8)),
+            url(<%= asset_path('2.jpg')%>);">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-6">
+        <div class="pt-1">
+          <h5>Si vous avez des questions ou envie de me contacter, n'hésitez surtout pas!</h5>
+          <%= form_for(@contact) do |f| %>
+            <div class="field mb-3 d-flex justify-content-between">
+              <%= f.text_field :name, placeholder: "nom", style: 'width:35%;' %>
+              <%= f.text_field :email, placeholder: "email", style: 'width:60%' %>
+            </div>
+            <div class="field mb-3">
+              <%= f.text_area :message, placeholder: "message", style: 'width:100%; height: 20vh;'  %>
+            </div>
+            <div class="d-flex justify-content-between">
+
+                <%= f.submit "Envoyer",class: 'button'%>
+
+            </div>
+          <% end %>
+          <br>
+        </div>
+      </div>
+      <div class="col-3">
+      </div>
+    </div>
+  </div>
+</div>

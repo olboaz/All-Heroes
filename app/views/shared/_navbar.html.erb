@@ -2,8 +2,10 @@
 <% if current_page?(root_path) %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
 
-<% else current_page?(heroes_path) || current_page?(hero_path)%>
+<% elsif current_page?(heroes_path)%>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="position:relative;width:100%">
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
 <% end %>
 
 
