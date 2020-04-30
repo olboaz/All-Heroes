@@ -1,24 +1,52 @@
 <div class="container">
-  <div class="card-hero", style="margin-top: 28px;">
+  <div class="card-hero", style="margin-top: 74px;">
     <%= image_tag @heroe.image_hero %>
 
     <div class="card-hero-infos">
-      <h2><%= @heroe.name %></h2>
-      <p><strong>Address :</strong> <%= @heroe.address %></p>
-      <% if @heroe.height == 0 %>
-        <p><strong>Heigth :</strong> na </p>
-      <% else %>
-        <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
-      <% end %>
+      <h2 class="highlight text-center mb-3"> <%= @heroe.name %> </h2>
+      <i class="text-secondary"><strong>Alias</strong> <%= @heroe.aliases %></i>
+      <p class="mb-3 mt-3"><strong><i class="fas fa-map-marked-alt"></i></strong>  <%= @heroe.address %></p>
+      <br>
+      <div class="d-flex justify-content-between">
+        <div class="Appearance">
+          <h6>Appearance</h6>
+          <p><strong>Gender :</strong> <%= @heroe.gender %> </p>
+          <p><strong>Race :</strong>  <%= @heroe.race %></p>
 
-      <% if @heroe.height == 0 %>
-        <p><strong>Heigth :</strong> na </p>
-      <% else %>
-        <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
-      <% end %>
+          <% if @heroe.height == 0 %>
+            <p><strong>Heigth :</strong> na </p>
+          <% else %>
+            <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+          <% end %>
 
+          <% if @heroe.height == 0 %>
+            <p><strong>Heigth :</strong> na </p>
+          <% else %>
+            <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+          <% end %>
+        </div>
+
+        <div class="powerstats">
+          <h6>Powerstats</h6>
+          <p><strong>Gender :</strong> <%= @heroe.gender %> </p>
+          <p><strong>Race :</strong>  <%= @heroe.race %></p>
+
+          <% if @heroe.height == 0 %>
+            <p><strong>Heigth :</strong> na </p>
+          <% else %>
+            <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+          <% end %>
+
+          <% if @heroe.height == 0 %>
+            <p><strong>Heigth :</strong> na </p>
+          <% else %>
+            <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+          <% end %>
+        </div>
+      </div>
       <hr>
-      <p><strong>Description :</strong> <%= @heroe.description %></p>
+      <p><strong>Description :</strong><br><br>
+       <%= @heroe.description %></p>
     </div>
   </div>
 
