@@ -37,8 +37,11 @@
 }
 
 .card-hero {
+  margin-left: auto;
+  margin-right: auto;
+  width: 850px;
   overflow: hidden;
-  height: 300px;
+  height: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -48,9 +51,10 @@
 
 .card-hero img {
   height: 100%;
-  width: 260px;
+  width: 420px;
   object-fit: unset;
   padding: 20px;
+  margin: 0 10px;
   filter: drop-shadow(2px 4px 6px black);
 }
 
@@ -74,10 +78,17 @@
 }
 
 .card-hero .card-hero-infos {
-  padding: 16px;
+  padding: 20px;
   flex-grow: 1;
 }
 
+
+.highlight {
+background: url(https://andyhooke.co.uk/wp-content/uploads/2018/02/yellow-brushstroke.png);
+background-repeat: no-repeat;
+background-size: 100% 95%;
+padding: 8px 0;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

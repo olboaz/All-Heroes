@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_093416) do
+ActiveRecord::Schema.define(version: 2020_04_30_173839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_04_22_093416) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "gender"
+    t.string "race"
+    t.integer "intelligence"
+    t.integer "strength"
+    t.integer "speed"
+    t.integer "durability"
+    t.integer "power"
+    t.integer "combat"
+    t.string "aliases"
     t.index ["publisher_id"], name: "index_heroes_on_publisher_id"
   end
 

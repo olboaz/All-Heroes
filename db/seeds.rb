@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+puts "suppression des tables"
 Heroe.destroy_all
-
+Publisher.destroy_all
 
 require 'json'
 require 'open-uri'
@@ -21,6 +21,7 @@ require 'faker'
 
 my_api_key = ENV['HERO_API_KEY']
 
+puts "ajouts des datas"
 (1..30).each { |i|
   url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
   hero_serialized = open(url).read
@@ -48,22 +49,20 @@ my_api_key = ENV['HERO_API_KEY']
     image_hero: hero['image']['url'],
     height: hero['appearance']['height'][1],
     weight: hero['appearance']['weight'][1],
+    gender: hero['appearance']['gender'],
+    race: hero['appearance']['race'],
+    aliases: hero['biography']['aliases'][1],
+    intelligence: hero['powerstats']['intelligence'],
+    strength: hero['powerstats']['strength'],
+    speed: hero['powerstats']['speed'],
+    durability: hero['powerstats']['durability'],
+    power: hero['powerstats']['power'],
+    combat: hero['powerstats']['combat'],
     latitude: lat, # Faker::Address.latitude,
     longitude: long, #Faker::Address.longitude,
-    publisher_id: i
+    publisher_id: Publisher.last.id
   )
   heroe.save!
 }
 
-
-# puts 'Creating 10 fake heroes...'
-# 10.times do
-#   heroe = Heroe.new(
-#     name:    Faker::Superhero.name,
-#     address: Faker::Address.full_address,
-#     latitude: Faker::Address.latitude,
-#     longitude: Faker::Address.longitude
-#   )
-#   heroe.save!
-# end
-puts 'Finished!'
+puts 'Finished !'
