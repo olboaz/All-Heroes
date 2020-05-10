@@ -20,7 +20,7 @@
           <% end %>
 
           <% if @heroe.height == 0 %>
-            <p><strong>Heigth :</strong> na </p>
+            <p><strong>Weight :</strong> na </p>
           <% else %>
             <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
           <% end %>
@@ -28,20 +28,22 @@
 
         <div class="powerstats">
           <h6>Powerstats</h6>
-          <p><strong>Gender :</strong> <%= @heroe.gender %> </p>
-          <p><strong>Race :</strong>  <%= @heroe.race %></p>
-
-          <% if @heroe.height == 0 %>
-            <p><strong>Heigth :</strong> na </p>
+          <p><strong>Intelligence :</strong> <%= @heroe.intelligence %> </p>
+          <p><strong>Strength :</strong>  <%= @heroe.strength %></p>
+          <p><strong>Power :</strong> <%= @heroe.power %> </p>
+          <p><strong>Combat :</strong>  <%= @heroe.combat %></p>
+          <% if @heroe.speed == 0 %>
+            <p><strong>Speed :</strong> na </p>
           <% else %>
-            <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+            <p><strong>Speed :</strong> <%= @heroe.speed %></p>
           <% end %>
 
-          <% if @heroe.height == 0 %>
-            <p><strong>Heigth :</strong> na </p>
+          <% if @heroe.durability == 0 %>
+            <p><strong>Durability :</strong> na </p>
           <% else %>
-            <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
+            <p><strong>Durability :</strong> <%= @heroe.durability %></p>
           <% end %>
+
         </div>
       </div>
       <hr>

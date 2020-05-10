@@ -54,7 +54,6 @@
   width: 420px;
   object-fit: unset;
   padding: 20px;
-  margin: 0 10px;
   filter: drop-shadow(2px 4px 6px black);
 }
 
@@ -80,6 +79,7 @@
 .card-hero .card-hero-infos {
   padding: 20px;
   flex-grow: 1;
+  margin-right: 20px;
 }
 
 
