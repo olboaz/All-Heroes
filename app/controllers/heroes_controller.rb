@@ -24,10 +24,27 @@ def show
   authorize @heroe
 end
 
+def new
+  @heroe = Heroe.new
+  authorize @heroe
+end
+
+def create
+  @heroe = Heroe.new(heroe_params)
+    authorize @heroe
+    @heroe.user = current_user
+    if @heroe.save
+      redirect_to heroe_path(@heroe)
+    else
+      render :new
+    end
+
+end
+
 private
 
 def heroe_params
-    params.require(:heroe).permit(:name, :description, :address, :heigth, :weight, :image_hero)
+    params.require(:heroe).permit(:name, :description, :address, :heigth, :weight, :image_hero, photos: [])
 end
 
 end

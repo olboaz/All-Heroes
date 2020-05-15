@@ -7,8 +7,8 @@ class SubscribeToNewsletterService
   end
 
   def call
-    @member_info = @gibbon.lists(@audience_id).members(@member_id).retrieve.body["status"]
-    if @member_info == "subscribed"
+    response = @gibbon.lists(@audience_id).members.retrieve(params: {"fields": "members.email_address"})
+    if response
     else
       @gibbon.lists(@audience_id).members.create(
         body: {
@@ -23,3 +23,4 @@ class SubscribeToNewsletterService
     end
   end
 end
+
