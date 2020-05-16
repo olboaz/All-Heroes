@@ -38,7 +38,23 @@ def create
     else
       render :new
     end
+end
 
+def edit
+  @heroe = Heroe.find(params[:id])
+  authorize @heroe
+end
+
+def update
+  @heroe = Heroe.find(params[:id])
+  authorize @heroe
+  @heroe.user = current_user
+  @heroe.update(heroe_params)
+  if @heroe.save
+    redirect_to heroe_path(@heroe)
+  else
+    render :new
+  end
 end
 
 private

@@ -3,6 +3,9 @@
     <%= image_tag @heroe.image_hero %>
 
     <div class="card-hero-infos">
+      <%= link_to edit_hero_path do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
       <h2 class="highlight text-center mb-3"> <%= @heroe.name %> </h2>
       <i class="text-secondary"><strong>Alias</strong> <%= @heroe.aliases %></i>
       <p class="mb-3 mt-3"><strong><i class="fas fa-map-marked-alt"></i></strong>  <%= @heroe.address %></p>
