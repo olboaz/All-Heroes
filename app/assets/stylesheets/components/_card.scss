@@ -82,6 +82,17 @@
   margin-right: 20px;
 }
 
+.card-hero-infos {
+  position: relative;
+}
+
+.card-hero-infos > a {
+  position: absolute;
+  top: 10px;
+  right: -8px;
+  color: black;
+  font-size: 18px;
+}
 
 .highlight {
 background: url(https://andyhooke.co.uk/wp-content/uploads/2018/02/yellow-brushstroke.png);

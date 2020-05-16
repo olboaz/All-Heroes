@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row", style="margin-top: 74px;">
+    <div class="col-12">
+      <h1 class="my-3">Edit your Heroe !</h1>
+      <%= simple_form_for(@heroe) do |f| %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :name %>
+        <%= f.input :aliases %>
+        <%= f.association :publisher, label_method: :name,
+              label: "Publisher :" %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :height %>
+        <%= f.input :weight %>
+        <%= f.input :gender %>
+        <%= f.input :race %>
+        <%= f.input :intelligence %>
+        <%= f.input :strength %>
+        <%= f.input :speed %>
+        <%= f.input :durability %>
+        <%= f.input :power %>
+        <%= f.input :combat %>
+
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

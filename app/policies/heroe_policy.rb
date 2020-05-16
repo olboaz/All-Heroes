@@ -13,4 +13,7 @@ class HeroePolicy < ApplicationPolicy
     return true
   end
 
+  def update?
+    true
+  end
 end
