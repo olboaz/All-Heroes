@@ -94,6 +94,25 @@
   font-size: 18px;
 }
 
+
+
+.card-reviews{
+  margin-left: auto;
+  margin-right: auto;
+  width: 850px;
+  overflow: hidden;
+  height: 100%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  & .fa-feather-alt {
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
 .highlight {
 background: url(https://andyhooke.co.uk/wp-content/uploads/2018/02/yellow-brushstroke.png);
 background-repeat: no-repeat;
