@@ -23,6 +23,8 @@ my_api_key = ENV['HERO_API_KEY']
 
 puts "ajouts des datas"
 (1..30).each { |i|
+  puts "Enregistrement #{i}"
+  # url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
   url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
   hero_serialized = open(url).read
   hero = JSON.parse(hero_serialized)
@@ -39,7 +41,11 @@ puts "ajouts des datas"
     long = data['records'][i]['fields']['tt'][1]
   end
 
-  publisher = Publisher.new(name: hero['biography']['publisher'])
+  if hero['biography']['publisher'].nil?
+    publisher = Publisher.new(name: "Comics")
+  else
+    publisher = Publisher.new(name: hero['biography']['publisher'])
+  end
   publisher.save!
 
   heroe = Heroe.new(

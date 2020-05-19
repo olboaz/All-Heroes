@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :heroes, through: :users_heroes
+  has_many :reviews
   has_one_attached :photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
