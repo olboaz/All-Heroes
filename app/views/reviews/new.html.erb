@@ -1,5 +1,8 @@
-<%= simple_form_for [ @heroe, @review ] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+
+<div class="container" , style="margin-top: 74px;">
+  <%= simple_form_for [ @heroe, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your heroe" %>
+    <%= f.submit "Send your review", class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>

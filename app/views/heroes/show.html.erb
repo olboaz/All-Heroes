@@ -55,27 +55,26 @@
     </div>
   </div>
 
-
-
-  <div class="pt-4">
-    <div class="card-reviews">
-      <h4 class="p-2">Reviews</h4>
-      <%= link_to new_hero_review_path(@heroe) do%>
-      <i class="fas fa-feather-alt p-2 m-2"></i>
+  <div class="card-reviews mt-3">
+   <div class="container my-3 bg-white">
+      <h4 class="p-2" style="position:relative;=">Reviews
+      <%= link_to new_hero_review_path(@heroe) do %>
+        <i class="fas fa-feather-alt p-2 m-2" style="position:absolute;right: 0; top: 0;"></i>
       <% end %>
-    </div>
-    <ul class="list-group">
-      <% @heroe.reviews.each do |review| %>
-        <li class="list-group-item"><%= review.content %>
-          <%= link_to "Remove",
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-      <% end %>
-    </ul>
+      </h4>
 
+
+        <% @heroe.reviews.each do |review| %>
+          <p class="list-group-item">
+            <b> <%= review.user.username %></b>
+            <br>
+            <%= review.content %>
+            <%= link_to "Remove",
+                    review_path(review),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+        <% end %>
   </div>
 
-
-
+  </div>
 </div>
