@@ -2,6 +2,12 @@ class User < ApplicationRecord
   has_many :heroes, through: :users_heroes
   has_many :reviews
   has_one_attached :photo
+  validates :email,
+  :presence => :true,
+  :format => {
+    :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
+    :message => "format d'email non valide"
+  }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   #validates :first_name, :last_name, :email, presence: true
