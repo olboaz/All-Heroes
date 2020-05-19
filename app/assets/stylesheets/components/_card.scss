@@ -84,6 +84,10 @@
 
 .card-hero-infos {
   position: relative;
+  & .fa-pencil-alt {
+    color: #FFBF02;
+    font-size: 24px;
+  }
 }
 
 .card-hero-infos > a {
@@ -93,8 +97,6 @@
   color: black;
   font-size: 18px;
 }
-
-
 
 .card-reviews{
   margin-left: auto;
@@ -108,8 +110,12 @@
   justify-content: space-between;
   border-radius: 5px;
   & .fa-feather-alt {
-    font-size: 18px;
     cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -8px;
+    color: #FFBF02;
+    font-size: 24px;
   }
 }
 
