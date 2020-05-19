@@ -58,23 +58,22 @@
 
 
   <div class="pt-4">
-    <div class="card-hero" >
+    <div class="card-reviews">
       <h4 class="p-2">Reviews</h4>
-      <%= link_to 'Leave a review', new_heroe_review_path(@heroe) %>
+      <%= link_to new_hero_review_path(@heroe) do%>
+      <i class="fas fa-feather-alt p-2 m-2"></i>
+      <% end %>
     </div>
     <ul class="list-group">
       <% @heroe.reviews.each do |review| %>
-        <li class="list-group-item"><%= review.content %></li>
+        <li class="list-group-item"><%= review.content %>
+          <%= link_to "Remove",
+                  review_path(review),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
       <% end %>
     </ul>
 
-    <li class="list-group-item">
-      <%= review.content %>
-      <%= link_to "Remove",
-                  review_path(review),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-    </li>
   </div>
 
 
