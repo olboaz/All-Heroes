@@ -6,9 +6,9 @@ class LikesController < ApplicationController
     if already_liked?
       flash[:notice] = "You can't like more than once"
     else
+      flash[:success] = 'Thanks for liking!'
       authorize @heroe.likes.create(user_id: current_user.id)
     end
-
     redirect_to hero_path(@heroe)
   end
 
