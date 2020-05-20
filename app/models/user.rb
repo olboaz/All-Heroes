@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :heroes, through: :users_heroes
   has_many :reviews
+  has_many :likes, dependent: :destroy
   has_one_attached :photo
+
   validates :email,
   :presence => :true,
   :format => {

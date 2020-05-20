@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <div class="row mt-2 m-1 p-3">
+
     <div class="col-6 cards">
       <% @heroes.each do |heroe| %>
         <div class="category">
@@ -7,6 +8,7 @@
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
               url(<%=heroe.image_hero%>);">
               <h2><%= heroe.name.capitalize %> </h2>
+              <p><%= heroe.likes.count %> <%= (heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
             </div>
           <% end %>
         </div>

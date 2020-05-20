@@ -2,6 +2,7 @@ class Heroe < ApplicationRecord
   belongs_to :publisher
   has_many :users, through: :users_heroes
   has_many_attached :photos
+  has_many :likes, dependent: :destroy
 
   has_many :reviews, dependent: :destroy
 

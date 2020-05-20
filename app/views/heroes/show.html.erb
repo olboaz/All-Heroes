@@ -54,6 +54,20 @@
        <%= @heroe.description %></p>
     </div>
   </div>
+<!--   <% if policy(Like).create? %>
+    <%= button_to 'Like', hero_likes_path(@heroe), method: :post %>
+  <% end %>
+
+ <% if policy(Like).destroy? %> -->
+    <% pre_like = @heroe.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like && policy(Like).destroy?%>
+      <%= button_to 'Unlike', hero_like_path(@heroe, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', hero_likes_path(@heroe), method: :post %>
+    <% end %>
+<!--   <% end %> -->
+
+<p><%= @heroe.likes.count %> <%= (@heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
   <div class="card-reviews mt-3">
    <div class="container my-3 bg-white">
