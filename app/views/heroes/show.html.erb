@@ -3,7 +3,9 @@
     <div> <%= image_tag @heroe.image_hero %>
       <hr class="ml-3 mr-3 mt-0 mb-2">
       <div class="likes d-flex">
+        <% if current_user %>
         <% pre_like = @heroe.likes.find { |like| like.user_id == current_user.id} %>
+        <% end %>
         <% if pre_like && policy(Like).destroy?%>
           <%= link_to hero_like_path(@heroe, pre_like), method: :delete do %>
             <i class="fas fa-heart"></i>
@@ -14,6 +16,7 @@
           <% end %>
         <% end %>
         <p><%= @heroe.likes.count %> <%= (@heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
       </div>
     </div>
     <div class="card-hero-infos">

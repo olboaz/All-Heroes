@@ -31,8 +31,8 @@ end
 
 def create
   @heroe = Heroe.new(heroe_params)
-    authorize @heroe
-    @heroe.user = current_user
+  authorize @heroe
+  @heroe.user = current_user
     if @heroe.save
       redirect_to heroe_path(@heroe)
     else
