@@ -11,7 +11,7 @@
   background-position: center;
   height: 300px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   color: white;
   font-size: 24px;
@@ -28,6 +28,12 @@
     //font-family: 'Comic Neue', cursive;
     font-family: $headers-font;
     font-size: 35px;
+    padding:14px;
+  }
+  & p {
+    //font-family: 'Comic Neue', cursive;
+    font-family: $headers-font;
+    font-size: 18px;
     padding:14px;
   }
 }
@@ -50,7 +56,7 @@
 }
 
 .card-hero img {
-  height: 100%;
+  height: 92%;
   width: 420px;
   object-fit: unset;
   padding: 20px;
@@ -109,15 +115,32 @@
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  & .fa-feather-alt {
+  & .fa-comments {
     cursor: pointer;
     position: absolute;
     right: 0;
-    top: -8px;
+    top: 4px;
     color: #FFBF02;
-    font-size: 24px;
+    font-size: 30px;
   }
 }
+
+.likes {
+  padding: 0 20px;
+  font-size: 20px;
+  & p {
+    padding-left: 10px;
+    margin: 0;
+    align-self: center;
+  }
+  & .fas.fa-heart {
+    color: red;
+  }
+  & .far.fa-heart {
+    color: grey;
+  }
+}
+
 
 .highlight {
 background: url(https://andyhooke.co.uk/wp-content/uploads/2018/02/yellow-brushstroke.png);

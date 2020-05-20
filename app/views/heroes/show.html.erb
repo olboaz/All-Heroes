@@ -1,7 +1,21 @@
 <div class="container">
   <div class="card-hero", style="margin-top: 74px;">
-    <%= image_tag @heroe.image_hero %>
-
+    <div> <%= image_tag @heroe.image_hero %>
+      <hr class="ml-3 mr-3 mt-0 mb-2">
+      <div class="likes d-flex">
+        <% pre_like = @heroe.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like && policy(Like).destroy?%>
+          <%= link_to hero_like_path(@heroe, pre_like), method: :delete do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to hero_likes_path(@heroe), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+        <p><%= @heroe.likes.count %> <%= (@heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      </div>
+    </div>
     <div class="card-hero-infos">
       <%= link_to edit_hero_path do %>
         <i class="fas fa-pencil-alt"></i>
@@ -54,26 +68,14 @@
        <%= @heroe.description %></p>
     </div>
   </div>
-<!--   <% if policy(Like).create? %>
-    <%= button_to 'Like', hero_likes_path(@heroe), method: :post %>
-  <% end %>
 
- <% if policy(Like).destroy? %> -->
-    <% pre_like = @heroe.likes.find { |like| like.user_id == current_user.id} %>
-    <% if pre_like && policy(Like).destroy?%>
-      <%= button_to 'Unlike', hero_like_path(@heroe, pre_like), method: :delete %>
-    <% else %>
-      <%= button_to 'Like', hero_likes_path(@heroe), method: :post %>
-    <% end %>
-<!--   <% end %> -->
-
-<p><%= @heroe.likes.count %> <%= (@heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
   <div class="card-reviews mt-3">
    <div class="container my-3 bg-white">
       <h4 class="p-2" style="position:relative;=">Reviews
       <%= link_to new_hero_review_path(@heroe) do %>
-        <i class="fas fa-feather-alt p-2 m-2"></i>
+        <!-- <i class="fas fa-feather-alt p-2 m-2"></i> -->
+        <i class="far fa-comments"></i>
       <% end %>
       </h4>
 
