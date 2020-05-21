@@ -1,13 +1,13 @@
 
-<% if current_page?(root_path) %>
+<% if (current_page?(root_path) || current_page?(user_registration))%>
+<% raise %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
 
 <% elsif current_page?(heroes_path)%>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="position:relative;width:100%">
 <% else %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 <% end %>
-
 
 <%= link_to root_path, class: "navbar-brand" do %>
   <h5 class="m-0"><%= image_tag "superhero.svg" %>

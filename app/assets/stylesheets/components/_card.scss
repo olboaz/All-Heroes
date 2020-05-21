@@ -33,7 +33,7 @@
   & p {
     //font-family: 'Comic Neue', cursive;
     font-family: $headers-font;
-    font-size: 18px;
+    font-size: 28px;
     padding:14px;
   }
 }
@@ -53,14 +53,19 @@
   display: flex;
   justify-content:start;
   border-radius: 5px;
+  margin-top: 85px;
+}
+
+.card-image {
+  padding: 20px;
 }
 
 .card-hero img {
-  height: 92%;
-  width: 420px;
+  height: 90%;
+  width: 330px;
   object-fit: unset;
-  padding: 20px;
   filter: drop-shadow(2px 4px 6px black);
+  border-radius: 5px;
 }
 
 .card-heroes {

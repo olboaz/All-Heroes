@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="card-hero", style="margin-top: 74px;">
-    <div> <%= image_tag @heroe.image_hero %>
-      <hr class="ml-3 mr-3 mt-0 mb-2">
+  <div class="card-hero">
+    <div class="card-image">
+      <%= image_tag @heroe.image_hero %>
+      <hr class="ml-auto mr-auto mb-2">
       <div class="likes d-flex">
         <% if current_user %>
         <% pre_like = @heroe.likes.find { |like| like.user_id == current_user.id} %>
@@ -16,7 +17,6 @@
           <% end %>
         <% end %>
         <p><%= @heroe.likes.count %> <%= (@heroe.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
       </div>
     </div>
     <div class="card-hero-infos">
@@ -73,7 +73,7 @@
   </div>
 
 
-  <div class="card-reviews mt-3">
+  <div class="card-reviews mt-3 mb-3">
    <div class="container my-3 bg-white">
       <h4 class="p-2" style="position:relative;=">Reviews
       <%= link_to new_hero_review_path(@heroe) do %>
