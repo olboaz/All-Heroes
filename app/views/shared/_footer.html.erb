@@ -1,25 +1,10 @@
 
 <% if current_page?(root_path) %>
-
   <div class="footer", style="background:transparent!important;position:absolute;width:100%;bottom:0;">
-    <div class="footer-links">
-      <a href="https://github.com/olboaz" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/patrice-jaszczynski-66a18023/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:spalkes04@gmail.com?subject=Demande de contact"><i class="far fa-envelope"></i></a>
-      <h6 class="m-0"> <%= link_to 'Contact me', new_contact_path %> </h6>
-     <!--  <a href="">Contact me</a> -->
-    </div>
-    <div class="footer-copyright">
-      <i class="fas fa-heart"></i> by PJ
-    </div>
-  </div>
-
 <% else %>
-
   <div class="footer">
+<% end %>
+
     <div class="footer-links">
       <a href="https://github.com/olboaz" target="_blank"><i class="fab fa-github"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
@@ -34,4 +19,3 @@
       <i class="fas fa-heart"></i> by PJ
     </div>
   </div>
-<% end %>
