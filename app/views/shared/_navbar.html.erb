@@ -1,6 +1,5 @@
 
-<% if (current_page?(root_path) || current_page?(user_registration))%>
-<% raise %>
+<% if current_page?(root_path) %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color:transparent;position:absolute;width:100%">
 
 <% elsif current_page?(heroes_path)%>
