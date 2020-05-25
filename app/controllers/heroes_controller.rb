@@ -32,9 +32,9 @@ end
 def create
   @heroe = Heroe.new(heroe_params)
   authorize @heroe
-  @heroe.user = current_user
+  @heroe.user_id = current_user.id
     if @heroe.save
-      redirect_to heroe_path(@heroe)
+      redirect_to hero_path(@heroe)
     else
       render :new
     end
@@ -60,7 +60,7 @@ end
 private
 
 def heroe_params
-    params.require(:heroe).permit(:name, :description, :address, :heigth, :weight, :image_hero, photos: [])
+    params.require(:heroe).permit(:name, :description, :gender, :race, :address, :height, :weight, :image_hero, :publisher_id, photos: [])
 end
 
 end

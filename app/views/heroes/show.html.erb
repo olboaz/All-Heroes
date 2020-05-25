@@ -1,7 +1,11 @@
 <div class="container">
   <div class="card-hero">
-    <div class="card-image">
-      <%= image_tag @heroe.image_hero %>
+    <div class="card-image col-5">
+      <% if @heroe.photos.attached?  %>
+        <%= cl_image_tag @heroe.photos[0].key %>
+      <% else %>
+        <%= image_tag @heroe.image_hero %>
+      <% end %>
       <hr class="ml-auto mr-auto mb-2">
       <div class="likes d-flex">
         <% if current_user %>

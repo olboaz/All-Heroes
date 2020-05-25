@@ -19,7 +19,7 @@ gem 'faker'
 gem 'geocoder'
 gem 'postmark-rails'
 gem 'gibbon'
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary'
 gem 'pundit'
 
 
