@@ -5,11 +5,17 @@
       <% @heroes.each do |heroe| %>
         <div class="category">
           <%= link_to hero_path(heroe) do %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+            <% if heroe.photos.attached?  %>
+
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+              url('<%= cl_image_path heroe.photos.first.key, height: 300, width: 400, crop: :fill %>');">
+            <% else %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
               url(<%=heroe.image_hero%>);">
-              <h2><%= heroe.name.capitalize %> </h2>
-              <p><i class="fas fa-heart"></i> <%= heroe.likes.count %></p>
-            </div>
+            <% end %>
+                <h2><%= heroe.name.capitalize %> </h2>
+                <p><i class="fas fa-heart"></i> <%= heroe.likes.count %></p>
+              </div>
           <% end %>
         </div>
       <% end %>
