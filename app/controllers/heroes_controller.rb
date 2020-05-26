@@ -48,7 +48,7 @@ end
 def update
   @heroe = Heroe.find(params[:id])
   authorize @heroe
-  @heroe.user = current_user
+  @heroe.user_id = current_user.id
   @heroe.update(heroe_params)
   if @heroe.save
     redirect_to heroe_path(@heroe)

@@ -1,0 +1,82 @@
+<div class="container background background-filter" style="width: 800px;padding:0;">
+  <div class="row", style="margin: 25px 0px;">
+    <div class="col-12">
+
+      <h1 class="text-center my-3">Add your Heroe !</h1>
+      <%= simple_form_for(@heroe) do |f| %>
+        <div class="form-hero">
+          <div class="col-6 photos-hero">
+            <label for="upload"><span id="preview"></span></label>
+            <label for="file-upload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Charger les photos (max 6)
+            </label>
+            <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, id: "file-upload",
+             :onchange => "handleFiles(files)"} %>
+          </div>
+
+          <div class="col-6 form-group">
+            <%= f.input :name, placeholder: 'Name', label: false %>
+            <%= f.input :aliases, placeholder: 'Aliases', label: false %>
+            <%= f.association :publisher %>
+            <%= f.input :address, placeholder: 'Address', label: false %>
+            <%= f.input :description, placeholder: 'description', label: false %>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="form-hero">
+          <div class="col-6">
+            <h3>Appearance</h3>
+            <%= f.input :height, placeholder: 'Height', label: false  %>
+            <%= f.input :weight, placeholder: 'Weight', label: false  %>
+            <%= f.input :gender, placeholder: 'Gender', label: false  %>
+            <%= f.input :race, placeholder: 'Race', label: false  %>
+          </div>
+
+          <div class="col-6">
+            <h3>Powerstats</h3>
+            <%= f.input :intelligence, placeholder: 'Intelligence', label: false  %>
+            <%= f.input :strength, placeholder: 'Strength', label: false  %>
+            <%= f.input :speed, placeholder: 'Speed', label: false  %>
+            <%= f.input :durability, placeholder: 'Durability', label: false  %>
+            <%= f.input :power, placeholder: 'Power', label: false  %>
+            <%= f.input :combat, placeholder: 'Combat', label: false  %>
+          </div>
+        </div>
+        <div class="mb-3 text-center w-100">
+          <%= f.submit class: 'btn btn-lg btn-primary' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleFiles(files) {
+   var imageType = /^image\//;
+   for (var i = 0; i < 6; i++) {
+   var file = files[i];
+   if (!imageType.test(file.type)) {
+     alert("veuillez sélectionner une image");
+   }else{
+     if(i == 0){
+       preview.innerHTML = '';
+     }
+     var img = document.createElement("img");
+     img.classList.add("obj");
+     img.file = file;
+     preview.appendChild(img);
+     var reader = new FileReader();
+     reader.onload = ( function(aImg) {
+     return function(e) {
+     aImg.src = e.target.result;
+   };
+  })(img);
+
+ reader.readAsDataURL(file);
+ }
+ }
+}
+</script>
