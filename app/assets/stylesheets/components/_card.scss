@@ -120,11 +120,16 @@
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
-  & .fa-comments {
+  & .fa-comments.with{
     cursor: pointer;
     position: absolute;
     right: 0;
     top: 4px;
+    color: #FFBF02;
+    font-size: 30px;
+  }
+  & .fa-comments.none{
+    cursor: pointer;
     color: #FFBF02;
     font-size: 30px;
   }

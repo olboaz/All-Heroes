@@ -51,7 +51,7 @@ def update
   @heroe.user_id = current_user.id
   @heroe.update(heroe_params)
   if @heroe.save
-    redirect_to heroe_path(@heroe)
+    redirect_to hero_path(@heroe)
   else
     render :new
   end
@@ -60,7 +60,16 @@ end
 private
 
 def heroe_params
-    params.require(:heroe).permit(:name, :description, :gender, :race, :address, :height, :weight, :image_hero, :publisher_id, photos: [])
+    params.require(:heroe).permit(:name, :description, :aliases, :gender, :race, :address,
+    :height, :weight, :image_hero, :publisher_id,
+    :intelligence,
+    :strength,
+    :speed,
+    :durability,
+    :power,
+    :combat,
+     photos: [])
 end
 
 end
+
