@@ -81,11 +81,21 @@
       <% if @heroe.reviews.any? %>
 
         <h4 class="p-2" style="position:relative;=">Reviews
+          <% if !@avg.nan? || @avg.nil? %>
+            <% @avg = (@avg * 2.0).round / 2.0 %>
+            <span> <%= icon('fas', 'star', class: 'star-rating') * @avg %></span>
+            <% if @avg.round != @avg  %>
+              <span><%= icon('fas', 'star-half-alt', class: 'star-rating') %></span>
+            <% end %>
+            <span><%= icon('far', 'star', class: 'star-rating') * (5 - @avg) %></span>
+          <% end %>
           <%= link_to new_hero_review_path(@heroe) do %>
             <!-- <i class="fas fa-feather-alt p-2 m-2"></i> -->
             <i class="far fa-comments with"></i>
           <% end %>
         </h4>
+
+
 
         <% @heroe.reviews.each do |review| %>
           <p class="list-group-item">
