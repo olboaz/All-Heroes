@@ -38,12 +38,12 @@
           <p><strong>Race :</strong>  <%= @heroe.race %></p>
 
           <% if @heroe.height == 0 %>
-            <p><strong>Heigth :</strong> na </p>
+            <p><strong>Height :</strong> na </p>
           <% else %>
-            <p><strong>Heigth :</strong> <%= @heroe.height %> cm</p>
+            <p><strong>Height :</strong> <%= @heroe.height %> cm</p>
           <% end %>
 
-          <% if @heroe.height == 0 %>
+          <% if @heroe.weight == 0 %>
             <p><strong>Weight :</strong> na </p>
           <% else %>
             <p><strong>Weight :</strong> <%= @heroe.weight %> kg</p>
@@ -76,28 +76,49 @@
     </div>
   </div>
 
-
   <div class="card-reviews mt-3 mb-3">
-   <div class="container my-3 bg-white">
-      <h4 class="p-2" style="position:relative;=">Reviews
-      <%= link_to new_hero_review_path(@heroe) do %>
-        <!-- <i class="fas fa-feather-alt p-2 m-2"></i> -->
-        <i class="far fa-comments"></i>
-      <% end %>
-      </h4>
+    <div class="container my-3 bg-white">
+      <% if @heroe.reviews.any? %>
 
+        <h4 class="p-2" style="position:relative;=">Reviews
+          <%= link_to new_hero_review_path(@heroe) do %>
+            <!-- <i class="fas fa-feather-alt p-2 m-2"></i> -->
+            <i class="far fa-comments with"></i>
+          <% end %>
+        </h4>
 
         <% @heroe.reviews.each do |review| %>
           <p class="list-group-item">
+
             <b> <%= review.user.username %></b>
-            <br>
-            <%= review.content %>
-            <%= link_to "Remove",
-                    review_path(review),
+
+            <% review.rating.to_i.times do  %>
+              <span><i class="fas fa-star" style="color:#FFD700;"></i></span>
+            <% end %>
+            <% review.blank_stars.times do %>
+              <span><i class="far fa-star" style="color:#DDDDDD;"></i></span>
+            <% end %>
+
+            <%= link_to review_path(review),
                     method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+                    data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash" style="position:absolute;right:15px;color:#CCCCCC;"></i>
+                    <% end %>
+             <br>
+            <%= review.content %>
+
+          </p>
         <% end %>
+
+      <% else %>
+        <h4 class="text-center yellow-color">Please put a comment here !</h4>
+        <div class="text-center">
+          <%= link_to new_hero_review_path(@heroe) do %>
+            <i class="far fa-comments none"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  </div>
 </div>
