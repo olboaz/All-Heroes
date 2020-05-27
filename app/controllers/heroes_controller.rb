@@ -22,6 +22,7 @@ end
 def show
   @heroe = Heroe.find(params[:id])
   authorize @heroe
+  @avg = @heroe.reviews.map(&:rating).sum / @heroe.reviews.count.to_f
 end
 
 def new
