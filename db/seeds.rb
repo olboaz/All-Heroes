@@ -9,6 +9,7 @@
 puts "suppression des tables"
 Heroe.destroy_all
 Publisher.destroy_all
+User.destroy_all
 
 require 'json'
 require 'open-uri'
@@ -21,11 +22,13 @@ User1 = User.new(email: "toto@free.fr", username:"toto", password: "123456")
 User1.save
 
 my_api_key = ENV['HERO_API_KEY']
+marvel_api_key = ENV['MARVEL_PUBLIC']
+marvel_hash = ENV['MARVEL_HASH']
 
 puts "ajouts des datas"
 (1..30).each { |i|
-  puts "Enregistrement #{i}"
-  # url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
+  puts "----Enregistrement #{i}----"
+
   url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
   hero_serialized = open(url).read
   hero = JSON.parse(hero_serialized)
@@ -34,6 +37,19 @@ puts "ajouts des datas"
   data_serialized = open(data_url).read
   data = JSON.parse(data_serialized)
 
+  puts "Nom : #{hero['name']}"
+  marvel_url ="https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=#{hero['name']}&apikey=#{marvel_api_key}&ts=1&hash=#{marvel_hash}"
+  marvel_serialized = open(marvel_url).read
+  marvel = JSON.parse(marvel_serialized)
+
+  puts "test description marvel #{i}"
+  if marvel['data']['results'].empty? || marvel['data']['results'][0]['description'].empty?
+    desc = "unknown"
+  else
+    desc = marvel['data']['results'][0]['description']
+  end
+
+  puts "test lat & long #{i}"
   if data['records'][i]['fields']['tt'].nil?
     lat = 48.8525
     long = 2.3048
@@ -42,16 +58,18 @@ puts "ajouts des datas"
     long = data['records'][i]['fields']['tt'][1]
   end
 
+  puts "test publisher #{i}"
   if hero['biography']['publisher'].nil?
-    publisher = Publisher.new(name: "Comics")
+    publisher = Publisher.new(name: "Others")
   else
     publisher = Publisher.new(name: hero['biography']['publisher'])
   end
   publisher.save!
 
+  puts "Creation du heros #{i}"
   heroe = Heroe.new(
     name: hero['name'],
-    description: hero['name'],
+    description: desc,
     address: Faker::Address.full_address,
     image_hero: hero['image']['url'],
     height: hero['appearance']['height'][1],
@@ -71,6 +89,8 @@ puts "ajouts des datas"
     user_id: User.first.id
   )
   heroe.save!
+  puts "Héros #{i} sauvegardé !"
+  puts ""
 }
 
 puts 'Finished !'
