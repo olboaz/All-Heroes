@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card-hero">
+  <div class="card-hero" style="margin-top: 30px;">
     <div class="card-image col-5">
       <% if @heroe.photos.attached?  %>
         <%= cl_image_tag @heroe.photos[0].key %>
@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <div class="card-reviews mt-3 mb-3">
+  <div class="card-reviews mt-3 mb-3 pb-3">
     <div class="container my-3 bg-white">
       <% if @heroe.reviews.any? %>
 
@@ -100,7 +100,7 @@
         <% @heroe.reviews.each do |review| %>
           <p class="list-group-item">
 
-            <b> <%= review.user.username %></b>
+            <b> <%= review.user.username.capitalize %></b>
 
             <% review.rating.to_i.times do  %>
               <span><i class="fas fa-star" style="color:#FFD700;"></i></span>
@@ -109,11 +109,13 @@
               <span><i class="far fa-star" style="color:#DDDDDD;"></i></span>
             <% end %>
 
+            <% if review.user === current_user %>
             <%= link_to review_path(review),
                     method: :delete,
                     data: { confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash" style="position:absolute;right:15px;color:#CCCCCC;"></i>
                     <% end %>
+            <% end %>
              <br>
             <%= review.content %>
 

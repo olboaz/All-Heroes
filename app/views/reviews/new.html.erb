@@ -1,7 +1,6 @@
 <div class="container" , style="margin-top: 74px;">
   <%= simple_form_for [ @heroe, @review ] do |f| %>
-    <%= f.input :content %>
-
+    <%= f.input :content, label: "Your comment: "%>
   <fieldset class="rating">
       <input type="radio" id="star5" name="review[rating]" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
       <input type="radio" id="star4" name="review[rating]" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>

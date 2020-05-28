@@ -1,6 +1,5 @@
-
 <div class="container">
-  <div class="row">
+  <div class="row" style="margin-top: 90px;">
     <div class="col-12">
       <h1 class="my-3"><%= @user.username %></h1>
 
@@ -20,7 +19,7 @@
               <%= f.input :first_name %>
               <%= f.input :last_name %>
               <%= f.input :photo, as: :file, class: 'avatar' %>
-              <%= f.button :submit, "Update my profile", class: 'btn btn-primary' %>
+              <%= f.button :submit, "Update my profile", class: 'btn btn-primary mt-2' %>
             <% end %>
           <% else %>
             <div>

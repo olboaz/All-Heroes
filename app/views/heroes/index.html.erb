@@ -6,7 +6,6 @@
         <div class="category">
           <%= link_to hero_path(heroe) do %>
             <% if heroe.photos.attached?  %>
-
               <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
               url('<%= cl_image_path heroe.photos.first.key, height: 300, width: 400, crop: :fill %>');">
             <% else %>
