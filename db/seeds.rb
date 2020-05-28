@@ -26,7 +26,7 @@ marvel_api_key = ENV['MARVEL_PUBLIC']
 marvel_hash = ENV['MARVEL_HASH']
 
 puts "ajouts des datas"
-(1..30).each { |i|
+[*1..22, *24..30].each { |i|
   puts "----Enregistrement #{i}----"
 
   url = "https://superheroapi.com/api/#{my_api_key}/#{i}"
