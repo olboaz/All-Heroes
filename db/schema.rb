@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2020_05_20_092246) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "favorite_heroes", force: :cascade do |t|
-    t.integer "heroe_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "heroes", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -59,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_092246) do
     t.integer "height"
     t.integer "weight"
     t.bigint "publisher_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
@@ -72,8 +66,8 @@ ActiveRecord::Schema.define(version: 2020_05_20_092246) do
     t.integer "power"
     t.integer "combat"
     t.string "aliases"
-    t.integer "user_id"
     t.index ["publisher_id"], name: "index_heroes_on_publisher_id"
+    t.index ["user_id"], name: "index_heroes_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -134,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_092246) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "heroes", "publishers"
+  add_foreign_key "heroes", "users"
   add_foreign_key "likes", "heroes", column: "heroe_id"
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "heroes", column: "heroe_id"

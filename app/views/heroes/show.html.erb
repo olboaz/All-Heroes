@@ -1,5 +1,6 @@
-<div class="container">
-  <div class="card-hero" style="margin-top: 30px;">
+<div class="container" style="position: relative;
+    top: 20px;">
+  <div class="card-hero">
     <div class="card-image col-5">
       <% if @heroe.photos.attached?  %>
         <%= cl_image_tag @heroe.photos[0].key %>
@@ -24,8 +25,10 @@
       </div>
     </div>
     <div class="card-hero-infos">
-      <%= link_to edit_hero_path do %>
-        <i class="fas fa-pencil-alt"></i>
+      <% if @heroe.user == current_user %>
+        <%= link_to edit_hero_path do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
       <% end %>
       <h2 class="highlight text-center mb-3"> <%= @heroe.name %> </h2>
       <i class="text-secondary"><strong>Alias</strong> <%= @heroe.aliases %></i>

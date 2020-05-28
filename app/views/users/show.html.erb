@@ -30,6 +30,32 @@
         </div>
 
       <div class="bg-white p-3 my-3">
+        <h2 class="mb-3">My heroes</h2>
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex align-items-baseline flex-wrap">
+              <% @user.heroes.each do |heroe| %>
+                <div class="col-6 p-3">
+                  <%= link_to hero_path(heroe) do %>
+                    <% if heroe.photos.attached?  %>
+                      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+                      url('<%= cl_image_path heroe.photos.first.key, height: 300, width: 400, crop: :fill %>');">
+                    <% else %>
+                      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),
+                      url(<%=heroe.image_hero%>);">
+                    <% end %>
+                      <h2><%= heroe.name.capitalize %> </h2>
+                      <p><i class="fas fa-heart"></i> <%= heroe.likes.count %></p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-3 my-3">
         <h2 class="mb-3">My favorites heroes</h2>
         <div class="row">
           <div class="col-12">

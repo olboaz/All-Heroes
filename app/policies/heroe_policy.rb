@@ -13,7 +13,15 @@ class HeroePolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    record.user == user
+  end
+
   def update?
-    true
+    edit?
+  end
+
+  def destroy?
+    record.user == user
   end
 end

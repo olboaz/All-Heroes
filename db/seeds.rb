@@ -17,7 +17,8 @@ require 'faker'
 # Paris Data
 # https://opendata.paris.fr/api/records/1.0/search/?dataset=restaurants-casvp&facet=code&facet=nom_restaurant&facet=type
 
-
+User1 = User.new(email: "toto@free.fr", username:"toto", password: "123456")
+User1.save
 
 my_api_key = ENV['HERO_API_KEY']
 
@@ -66,7 +67,8 @@ puts "ajouts des datas"
     combat: hero['powerstats']['combat'],
     latitude: lat, # Faker::Address.latitude,
     longitude: long, #Faker::Address.longitude,
-    publisher_id: Publisher.last.id
+    publisher_id: Publisher.last.id,
+    user_id: User.first.id
   )
   heroe.save!
 }

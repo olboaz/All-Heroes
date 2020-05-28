@@ -8,7 +8,7 @@ class CreateHeroes < ActiveRecord::Migration[6.0]
       t.integer :height
       t.integer :weight
       t.references :publisher, null: false, foreign_key: true
-
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

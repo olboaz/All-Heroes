@@ -33,7 +33,7 @@ end
 def create
   @heroe = Heroe.new(heroe_params)
   authorize @heroe
-  @heroe.user_id = current_user.id
+  @heroe.user = current_user
     if @heroe.save
       redirect_to hero_path(@heroe)
     else
@@ -49,7 +49,7 @@ end
 def update
   @heroe = Heroe.find(params[:id])
   authorize @heroe
-  @heroe.user_id = current_user.id
+  @heroe.user = current_user
   @heroe.update(heroe_params)
   if @heroe.save
     redirect_to hero_path(@heroe)

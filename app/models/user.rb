@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :heroes, through: :users_heroes
+  has_many :heroes, dependent: :destroy, class_name: 'Heroe'
   has_many :reviews
   has_many :likes, dependent: :destroy
   has_one_attached :photo

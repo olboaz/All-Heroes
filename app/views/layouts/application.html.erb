@@ -21,7 +21,7 @@
 
     <%= render 'shared/flashes' %>
 
-    <%- if (controller_name == 'sessions') || (controller_name == 'registrations') %>
+    <%- if (controller_name == 'sessions') || (controller_name == 'registrations') || (controller_name == 'contacts') %>
     <% else %>
       <%= render 'shared/footer' %>
     <% end %>
