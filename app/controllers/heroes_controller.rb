@@ -4,9 +4,9 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 def index
   if params[:name]
     sql_query = "name ILIKE :name AND latitude IS NOT NULL AND longitude IS NOT NULL"
-    @heroes = policy_scope(Heroe.geocoded).where(sql_query, name: "%#{params[:name]}%") # renvoit tous les héros geocded
+    @heroes = policy_scope(Heroe.geocoded).where(sql_query, name: "%#{params[:name]}%").order('name ASC') # renvoit tous les héros geocded
   else
-    @heroes = policy_scope(Heroe.geocoded) # renvoit tous les héros geocoded
+    @heroes = policy_scope(Heroe.geocoded).order('name ASC') # renvoit tous les héros geocoded
   end
 
   @markers = @heroes.map do |heroe|
@@ -17,6 +17,25 @@ def index
       image_url: helpers.asset_url('superhero.svg')
     }
   end
+
+  # @a = Heroe.where('name LIKE ?', "V%").order(:name)
+@visitor_array = []
+@v = Heroe.all
+@v.each do |visitor|
+    @visitor_array << visitor.name[0,1]
+    end
+#Sort array alphabetically in ASC order
+@visitor_array.sort!
+#Remove duplicate elements
+@visitor_array.uniq!
+
+if (params[:letter] != nil)
+@visitors = Heroe.order("name ASC").where("name like '?'", letter)
+else
+@visitors = Heroe.order("name ASC")
+end
+
+
 end
 
 def show

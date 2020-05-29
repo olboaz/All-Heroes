@@ -5,6 +5,7 @@
         <h3 class="text-center">Sorry, your hero is not in the website yet, please add him !
           <br> <%= link_to "new", new_hero_path%> </h3>
     <% else %>
+
       <div class="col-6 cards">
         <% @heroes.each do |heroe| %>
           <div class="category">
