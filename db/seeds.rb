@@ -33,7 +33,11 @@ puts "ajouts des datas"
   hero_serialized = open(url).read
   hero = JSON.parse(hero_serialized)
 
-  data_url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=restaurants-casvp&rows=45&facet=code&facet=nom_restaurant&facet=type"
+  # data_url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=restaurants-casvp&rows=45&facet=code&facet=nom_restaurant&facet=type"
+  # data_serialized = open(data_url).read
+  # data = JSON.parse(data_serialized)
+
+  data_url = "https://data.iledefrance.fr/api/records/1.0/search/?dataset=adresses_et_donnees_gps_des_bibliotheques_municipales&q=&rows=700&facet=new_name&facet=nom_dept&facet=comment&facet=type_adresse"
   data_serialized = open(data_url).read
   data = JSON.parse(data_serialized)
 
@@ -50,12 +54,13 @@ puts "ajouts des datas"
   end
 
   puts "test lat & long #{i}"
-  if data['records'][i]['fields']['tt'].nil?
+  # if data['records'][i]['fields']['tt'].nil?
+  if data['records'][i]['geometry']['coordinates'][0].nil?
     lat = 48.8525
     long = 2.3048
   else
-    lat = data['records'][i]['fields']['tt'][0]
-    long = data['records'][i]['fields']['tt'][1]
+    lat = data['records'][i]['geometry']['coordinates'][1]
+    long = data['records'][i]['geometry']['coordinates'][0]
   end
 
   puts "test publisher #{i}"
