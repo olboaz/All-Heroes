@@ -7,7 +7,9 @@ import "bootstrap";
 import $ from 'jquery';
 
 import { initMapbox } from '../plugins/init_mapbox.js';
+import { loadDynamicBannerText } from '../components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  loadDynamicBannerText();
 })

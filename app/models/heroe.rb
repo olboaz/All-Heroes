@@ -11,4 +11,12 @@ class Heroe < ApplicationRecord
   validates :name, :description, :address, :height, :weight, presence: true
   validates :name, uniqueness:  true
 
+  def self.list
+    list = []
+    Heroe.all.each do |heroe|
+      list << heroe.name
+    end
+    return list
+  end
+
 end
