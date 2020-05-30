@@ -1,9 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('home.jpg') %>);">
   <div class="container text-right">
     <h1 id="title"> Discover All Heroes !</h1>
-    <p>
-      <span id="banner-typed-text"></span>
-    </p>
+    <br><br>
     <div id="home-search">
       <div id="cover">
         <%= form_with url: heroes_path, method: "GET", local: true do |f| %>
@@ -12,7 +10,7 @@
               <button type="submit">
                 <%= image_tag "strong.svg", id: "home-icon-search" %>
               </button>
-              <%= f.text_field :name, id: "HeroName", placeholder: "Search by name" %>
+              <%= f.text_field :name, id: "banner-typed-text" %>
     <!--           <%= f.submit "" %> -->
             </form>
           </div>
