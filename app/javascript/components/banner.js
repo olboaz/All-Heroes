@@ -5,7 +5,8 @@ const loadDynamicBannerText = () => {
     strings: ["Search by name :", "Batman", "Superman", "Abomination", "Hela"],
     attr: "placeholder",
     typeSpeed: 100,
-    loop: true
+    loop: true,
+
   });
 }
 
