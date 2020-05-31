@@ -1,4 +1,16 @@
 <div class="container-fluid">
+  <div class="d-flex flex-row mt-2 pl-3">
+    <% @letter_array.each do |letter| %>
+      <div class="letter">
+        <%= link_to letter, :letter => letter %>
+      </div>
+    <% end %>
+    <% if @heroes.count == 0 %>
+    <% else %>
+      <h4 class="pl-3 m-0 d-flex align-items-center"><%= @heroes.count %> Heroes !</h4>
+    <% end %>
+  </div>
+
   <div class="row mt-2 m-1">
     <% if @heroes.empty? %>
       <div class="col-6">
@@ -25,8 +37,6 @@
         <% end %>
     <% end %>
       </div>
-
-
 
     <div class="col-6 p-2">
       <div id="map"
