@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     authorize @contact
     if @contact.save
-      UserMailer.general_message(@contact).deliver
+      ContactMailer.the_message(@contact).deliver
       flash.notice = "Merci pour le message ! Je reviens vers toi rapidement."
       redirect_to root_path
     else

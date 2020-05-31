@@ -18,5 +18,4 @@ class Heroe < ApplicationRecord
     end
     return list
   end
-
 end
