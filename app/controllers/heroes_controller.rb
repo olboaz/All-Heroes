@@ -5,8 +5,12 @@ def index
   if params[:name]
     sql_query = "name ILIKE :name AND latitude IS NOT NULL AND longitude IS NOT NULL"
     @heroes = policy_scope(Heroe.geocoded).where(sql_query, name: "%#{params[:name]}%").order('name ASC') # renvoit tous les héros geocded
-  else
+  elsif params[:letter] == "All"
     @heroes = policy_scope(Heroe.geocoded).order('name ASC') # renvoit tous les héros geocoded
+  elsif params[:letter] != nil
+    @heroes = policy_scope(Heroe.geocoded).order("name ASC").where("name like ?", params[:letter]+"%")
+  else
+    @heroes = policy_scope(Heroe.geocoded).order("name ASC")
   end
 
   @markers = @heroes.map do |heroe|
@@ -18,24 +22,12 @@ def index
     }
   end
 
-  # @a = Heroe.where('name LIKE ?', "V%").order(:name)
-@visitor_array = []
-@v = Heroe.all
-@v.each do |visitor|
-    @visitor_array << visitor.name[0,1]
-    end
-#Sort array alphabetically in ASC order
-@visitor_array.sort!
-#Remove duplicate elements
-@visitor_array.uniq!
-
-if (params[:letter] != nil)
-@visitors = Heroe.order("name ASC").where("name like '?'", letter)
-else
-@visitors = Heroe.order("name ASC")
-end
-
-
+  @letter_array = ["All"]
+  @heroes_list = Heroe.all
+  @heroes_list.each do |heroe|
+      @letter_array << heroe.name[0,1]
+  end
+  @letter_array.uniq!
 end
 
 def show

@@ -50,3 +50,23 @@
   color: grey!important;
   opacity: 0.8;
 }
+
+.letter {
+  background: #e4e1e1;
+  border: 1px solid white;
+  height: 36px;
+  width: 28px;
+  text-align: center;
+  & a {
+    text-decoration: none;
+    color: black;
+    font-family: $headers-font;
+    display: block;
+    width:100%;
+    height: 100%;
+    font-size: 22px;
+  }
+  &:hover {
+    opacity:0.5;
+  }
+}
