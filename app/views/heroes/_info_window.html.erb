@@ -1,0 +1,8 @@
+<%= link_to hero_path(heroe) do %>
+    <div class="card-infos" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.9)),
+      url('<%= image_path heroe.image_hero%>');">
+      <h2 class="card-title"><%= heroe.name.capitalize %> </h2>
+      <p class="cm"><i class="fas fa-ruler-vertical"></i> <%= heroe.height %> cm</p>
+      <p class="kg"><i class="fas fa-weight-hanging"></i> <%= heroe.weight %> kg</p>
+    </div>
+<% end %>
