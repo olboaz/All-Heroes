@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://localhost:3000", protocol: 'http' }
+  config.action_mailer.default_url_options = { host: "localhost:3000", protocol: 'http' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -40,16 +40,16 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp # :letter_opener
 
-
    # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'gmail.com',
+    :authentication       => "plain", #alternative: login
     :user_name            => ENV["GMAIL_USERNAME"],
     :password             => ENV["GMAIL_PASSWORD"],
-    :authentication       => "plain", #alternative: login
     :enable_starttls_auto => true
+
   }
 
 
