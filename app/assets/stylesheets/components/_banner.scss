@@ -48,8 +48,15 @@
 
 #banner-typed-text::-webkit-input-placeholder{
   color: grey!important;
-
+  opacity: 0.8;
 }
+
+
+#banner-typed-text::-moz-placeholder{
+  color: grey!important;
+  opacity: 0.8;
+}
+
 
 .letter {
   background: #e4e1e1;
