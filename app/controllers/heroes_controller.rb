@@ -9,14 +9,6 @@ def index
     @heroes = policy_scope(Heroe.geocoded).order('name ASC') # renvoit tous les héros geocoded
   elsif params[:letter] != nil
     @heroes = policy_scope(Heroe.geocoded).order("name ASC").where("name like ?", params[:letter]+"%")
-      @markers = @heroes.map do |heroe|
-    {
-      lat: heroe.latitude,
-      lng: heroe.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { heroe: heroe }),
-      image_url: helpers.asset_url('superhero.svg')
-    }
-end
   else
     @heroes = policy_scope(Heroe.geocoded).order("name ASC")
   end
@@ -30,12 +22,14 @@ end
     }
 
   end
+
   @letter_array = ["All"]
   @heroes_list = Heroe.all
   @heroes_list.each do |heroe|
-      @letter_array << heroe.name[0,1]
+    @letter_array << heroe.name[0,1]
   end
   @letter_array.uniq!
+
 end
 
 def show
