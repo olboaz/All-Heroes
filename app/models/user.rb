@@ -36,7 +36,6 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
-
     return user
   end
 
@@ -56,13 +55,19 @@ class User < ApplicationRecord
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
+      if provider_data.provider == "google_oauth2"
+        user.first_name = provider_data.info.first_name
+        user.last_name = provider_data.info.last_name
+        user.username = provider_data.info.first_name
+      else
+        user.first_name = provider_data.info.name.split[0]
+        user.last_name = provider_data.info.name.split[1]
+        user.username = provider_data.info.nickname
+      end
       user.email = provider_data.info.email
-      user.first_name = provider_data.info.name
-      user.last_name = provider_data.info.name
       user.token = provider_data.credentials.token
       user.password = Devise.friendly_token[0, 20]
     end
-
   end
 
 
@@ -76,12 +81,14 @@ class User < ApplicationRecord
 
   private
 
+
+
   def subscribe_to_newsletter
     SubscribeToNewsletterService.new(self).call
   end
 
   def send_welcome_email
-    UserMailer.with(user: self).welcome.deliver_now
+    UserMailer.with(user: self).welcome.deliver
   end
 
 end
