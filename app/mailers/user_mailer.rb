@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome
     @user = params[:user] # Instance variable => available in view
+    attachments.inline["superhero.svg"] = File.read("#{Rails.root}/app/assets/images/superhero.svg")
     mail(to: @user.email, subject: 'Welcome to AllHeroes')
     # This will render a view in `app/views/user_mailer`!
   end

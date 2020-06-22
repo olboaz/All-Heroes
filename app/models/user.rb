@@ -8,7 +8,7 @@ class User < ApplicationRecord
   :presence => :true,
   :format => {
     :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
-    :message => "format d'email non valide"
+    :message => "email not valid"
   }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

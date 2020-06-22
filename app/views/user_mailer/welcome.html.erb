@@ -2,6 +2,15 @@
   body{
     font-family: sans-serif;
   }
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
 </style>
 
 
@@ -9,6 +18,12 @@
 
 <p>Nice to meet you, hope you enjoy the heroes !</p>
 
-<%= image_tag "superhero.svg" %><p>All heroes!</p>
+<p>Thanks for testing my app !</p>
 
-<%= link_to "Get back to the website", root_url  %>
+<div class="logo">
+  <%= image_tag(attachments['superhero.svg'].url) %>
+  <p>All heroes!</p>
+</div>
+<br>
+
+<%= link_to "Go to website AllHeroes", root_url  %>
